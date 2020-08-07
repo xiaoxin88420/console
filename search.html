@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form>
+        <label for="search"></label>
+        <input type="text" id="search">
+        <button id="searchButton">search</button>
+    </form>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById('searchButton').addEventListener('click', event => {
+            event.preventDefault()
+
+            let name = document.getElementById('search').value
+            axios.get(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=ckuDCJZTvGODnGVYDC4FTRlLhXJhmjEtg3slZV4Z&query=${name}`)
+                .then(res => {
+                    console.log(res.data)
+                })
+                .catch(err => { console.log(err) })
+
+
+            // axios.get(`https://api.spoonacular.com/recipes/${foodItemId}/information?apiKey=85a06dbd80b548e1822e70e6227765b4&includeNutrition=true`)
+            //     .then(res => {
+            //         console.log(res.data)
+            //     })
+            //     .catch(err => { console.log(err) })
+        })
+    </script>
+</body>
+
+</html>

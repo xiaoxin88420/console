@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .green {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <p>
+      <label for="item">item</label>
+      <input type="text" name="item" id="item">
+    </p>
+    <p>
+      <button id="addItem">Add Item</button>
+    </p>
+  </form>
+  <ul id="items"></ul>
+  <script>
+
+    let items = JSON.parse(localStorage.getItem('items')) || []
+
+    for (let i = 0; i< items.length; i++) {
+      let itemElem = document.createElement('li')
+
+      itemElem.dataset.item = items[i].text
+      
+      if (items[i].isDone) {
+        itemElem.className = 'todo green'
+      } else {
+        itemElem.className = 'todo'
+      }
+
+      itemElem.innerHTML = `
+        ${items[i].text}
+        <button class="delete">x</button>
+      `
+      document.getElementById('items').append(itemElem)
+    }
+
+    document.getElementById('addItem').addEventListener('click', event => {
+      event.preventDefault()
+      let itemObj = {
+        text: document.getElementById('item').value,
+        isDone: false
+      }
+      items.push(itemObj)
+      localStorage.setItem('items', JSON.stringify(items))
+      let itemElem = document.createElement('li')
+      itemElem.dataset.item = document.getElementById('item').value
+      itemElem.className = 'todo'
+      // itemElem.textContent = document.getElementById('item').value
+      itemElem.innerHTML = `
+        ${document.getElementById('item').value}
+        <button class="delete">x</button>
+      `
+      document.getElementById('items').append(itemElem)
+      document.getElementById('item').value = ''
+    })
+
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('todo')) {
+        console.log(event.target.dataset.item)
+
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].text === event.target.dataset.item) {
+            items[i].isDone = !items[i].isDone
+          }
+        }
+
+        localStorage.setItem('items', JSON.stringify(items))
+
+        if (event.target.classList.contains('green')) {
+          event.target.classList.remove('green')
+        } else {
+          event.target.classList.add('green')
+        }
+      } else if (event.target.classList.contains('delete')) {
+        console.log(event.target.parentNode.dataset.item)
+
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].text === event.target.parentNode.dataset.item) {
+            items.splice(i, 1)
+          }
+        }
+        
+        localStorage.setItem('items', JSON.stringify(items))
+        
+        event.target.parentNode.remove()
+      }
+    })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <form>
+        <p>
+        <label for="title">title</label>
+        <input type="text" name='title' id ='title'>
+        </p>
+        <p>
+        <label for="director">director</label>
+        <input type="text" name='director' id ='director'>
+        </p>
+        <p>
+        <label for="genre">genre</label>
+        <input type="text" name='genre' id ='genre'>
+        </p>
+        <p>
+        <label for="reyear">reyear</label>
+        <input type="text" name='reyear' id ='reyear'>
+        </p>
+        <p>
+        <button></button>
+        </p>
+
+    </form>
+
+    <div id='display'></div>
+    
+    
+    <script>
+
+        document.getElementById('mybtn').addEventListener('click', event => {
+            event.preventDefault()
+
+            document.getElementById('display').innerHTML = `
+            <p>Name: ${document.getElementById('title').value}</p>
+            <p>Director: ${document.getElementById('director').value}</p>
+            <p>Genre: ${document.getElementById('genre').value}</p>
+            <p>Release Year: ${document.getElementById('reyear').value}</p>
+            `
+            document.getElementById('title').value=''
+            document.getElementById('director').value=''
+            document.getElementById('genre').value=''
+            document.getElementById('reyear').value=''
+
+
+        })
+
+    </script>
+
+
+</body>
+</html>

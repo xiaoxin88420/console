@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form>
+    <p>
+      <label for="tag">gift</label>
+      <input type="text" name="tag" id="tag">
+    </p>
+    <p>
+      <button id="search">Search Gift</button>
+    </p>
+  </form>
+
+  <div id="gift"></div>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script>
+
+    $('#search').click(function (event) {
+      event.preventDefault()
+      let title = $('#title').val()
+      $.ajax(`http://www.omdbapi.com/?t=${title}&apikey=trilogy`)
+        .then(movie => {
+          console.log(movie)
+          $('#movie').append(`
+          <img src="${movie.Poster}" alt="${movie.Title}">
+          <h1>${movie.Title}</h1>
+          <h3>Directed by ${movie.Director}</h3>
+          <p>${movie.Plot}</p>
+        `)
+        })
+        .catch(err => { console.log(err) })
+    }) -->
+
+<script>
+    document.getElementById('search').addEventListener('click', event => {
+        event.preventDefault()
+        let tag = document.getElementById('tag').value
+        axios.get(`http://api.giphy.com/v1/gifs/search?q=${tag}&api_key=dtYNsWemFaMd447oDJfnzQPa7fHsIRwM&limit=5`)
+          .then(res => {
+            let gift = res.data
+            console.log(res)
+            // let giftElem = document.createElement('div')
+            // movieElem.innerHTML = `
+            //   <img src="${movie.Poster}" alt="${movie.Title}">
+            //   <h1>${movie.Title}</h1>
+            //   <h3>Directed by ${movie.Director}</h3>
+            //   <p>${movie.Plot}</p>
+            // `
+            // document.getElementById('movie').prepend(movieElem)
+          })
+          .catch(err => { console.log(err) })
+      })
+
+
+</script>
+
+</body>
+
+</html>

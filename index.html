@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="myfav">Hello World!</p>
+    <p id="ufav">Hello World!</p>
+
+
+    <script>
+
+    let movie = 'movie1'
+    let song = 'song1'
+    let game = 'game1'
+    let food = 'food1'
+
+    let uMovie = prompt('What is your favorite movie?')
+
+    if (uMovie === movie) {
+      alert(`Hey! That's my favorite too!`)
+    }
+
+    let uSong = prompt('What is your favorite song?')
+
+    if (uSong === song) {
+      alert(`Hey! That's my favorite too!`)
+    }
+
+    let uGame = prompt('What is your favorite game?')
+
+    if (uGame === game) {
+      alert(`Hey! That's my favorite too!`)
+    }
+
+    let uFood = prompt('What is your favorite food?')
+
+    if (uFood === food) {
+      alert(`Hey! That's my favorite too!`)
+    }
+
+
+    document.getElementById("myfav").innerHTML = `
+      My Favorites
+      ----------
+      Movie: ${movie}
+      Song: ${song}
+      Game: ${game}
+      Food: ${food}
+      ----------
+      `
+
+    document.getElementById("ufav").innerHTML = `
+      Your Favorites
+      ----------
+      Movie: ${uMovie}
+      Song: ${uSong}
+      Game: ${uGame}
+      Food: ${uFood}
+      ----------
+      `
+
+
+
+
+
+
+    // console.log(`
+    //   My Favorites
+    //   ----------
+    //   ['Movie: ${movie}', 'Song: ${song}', 'Game: ${game}', 'Food: ${food}']
+    //   ----------
+    // `)
+
+    // console.log(`
+    //   Your Favorites
+    //   ----------
+    //   Movie: ${uMovie}
+    //   Song: ${uSong}
+    //   Game: ${uGame}
+    //   Food: ${uFood}
+    //   ----------
+    // `)
+
+    
+    // for ( let i =1; i<= 100; i++) {
+    //     if (i%3===0 && i%5===0){
+    //         console.log("FizzBuzz")
+    //     }       
+        
+    //     else if (i%3===0){
+    //         console.log('Fizz')
+    //     }
+
+    //     else if (i%5===0){
+    //         console.log('Buzz')
+    //     }
+
+    //     else if (i%3!=0 || i%5!=0){
+    //         console.log(i)
+    //     }
+    // }
+
+    // let num1 = parseInt(prompt('Please put in the first number!'))
+
+    // let num2 = parseInt(prompt('Please put in the second number!'))
+
+    // function answers(num1, num2){
+
+    //     console.log(num1 + num2)
+    //     console.log(num1 - num2)
+    //     console.log(num1 * num2)
+    //     console.log(num1 / num2)
+    //     console.log(num1 % num2)
+    // }
+
+    // answers(num1, num2)
+
+
+    // let farm = {
+    //     cow : {
+    //         name : 'beef',
+    //         sound () {
+    //             console.log('Mu!')
+    //         }
+    //     },
+
+    //     pig: {
+    //         name : 'meat',
+    //         sound () {
+    //             console.log('Honk!')
+    //         }
+    //     },
+
+    //     hen : {
+    //         name : 'chicky',
+    //         sound () {
+    //             console.log('Cock!')
+    //         }
+    //     },
+
+    //     horse : {
+    //         name : 'horsy',
+    //         sound () {
+    //             console.log('Ney!')
+    //         }
+    //     },
+
+    //     sheep : {
+    //         name : 'fluffy',
+    //         sound () {
+    //             console.log('Meeee!')
+    //         }
+    //     },
+
+    //     dog : {
+    //         name : 'barky',
+    //         sound () {
+    //             console.log('Woooof!')
+    //         }
+    //     }
+
+    // }
+
+    // console.log (farm.cow.sound())
+
+    
+
+    </script>
+
+
+
+</body>
+</html>
