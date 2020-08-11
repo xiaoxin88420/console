@@ -1,0 +1,23 @@
+{
+  "name": "console",
+  "version": "1.0.0",
+  "description": "Hi",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoxin88420/console.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaoxin88420/console/issues"
+  },
+  "homepage": "https://github.com/xiaoxin88420/console#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
